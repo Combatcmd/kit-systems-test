@@ -1,5 +1,5 @@
 const initialState = {
-     pending: false,
+     pending: true,
      companies: [],
      company: null,
      error: null,

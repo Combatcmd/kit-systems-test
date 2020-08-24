@@ -15,6 +15,7 @@ const initialState = {
      error: {
           detail: '',
      },
+     response: null,
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -43,6 +44,7 @@ export const authReducer = (state = initialState, action) => {
                     isLoggedIn: false,
                     token: {},
                     user: {},
+                    response: action.payload,
                };
           default:
                return state;

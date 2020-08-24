@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core/';
 import { Visibility, VisibilityOff } from '@material-ui/icons/';
 import { authService } from '../../services/auth.service';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const useStyles = makeStyles({
      root: {
@@ -37,11 +37,17 @@ const useStyles = makeStyles({
           letterSpacing: '1.25px',
           padding: '10px 25px',
      },
+     error: {
+          color: 'red',
+          margin: 0,
+          textAlign: 'center',
+     },
 });
 
 const Auth = () => {
      const classes = useStyles();
      const dispatch = useDispatch();
+     const state = useSelector(store => store.authReducer);
      const [values, setValues] = React.useState({
           email: '',
           password: '',
@@ -107,6 +113,9 @@ const Auth = () => {
                          ),
                     }}
                />
+               {state.error && (
+                    <p className={classes.error}>{state.error.detail}</p>
+               )}
                <Button
                     variant="contained"
                     color="primary"

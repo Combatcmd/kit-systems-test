@@ -10,7 +10,10 @@ const signin = credentials => {
      return dispatch => {
           dispatch(request(credentials));
           API.post('token/', credentials)
-               .then(user => dispatch(success(user.data)))
+               .then(user => {
+                    user && dispatch(success(user.data));
+                    window.location = '/'
+               })
                .catch(error => dispatch(failure(error.response.data)));
      };
 };

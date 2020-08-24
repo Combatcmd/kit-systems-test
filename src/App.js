@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { AuthLayout, WithNavLayout } from './layouts';
 import Auth from './views/Auth';
-import { CompaniesList } from './views/Companies';
+import { CompaniesList, CompanyDetails } from './views/Companies';
 
 const App = () => {
      const isLoggedIn = useSelector(store => store.authReducer.isLoggedIn);
@@ -19,11 +19,12 @@ const App = () => {
                          layout={WithNavLayout}
                          isLoggedIn={isLoggedIn}
                     />
-                    {/* <PrivateRouteWrapper
+                    <PrivateRouteWrapper
                          path="/company/:id"
-                         component={ClientDetails}
+                         component={CompanyDetails}
                          layout={WithNavLayout}
-                    /> */}
+                         isLoggedIn={isLoggedIn}
+                    />
                     <RouteWrapper
                          path="/login"
                          component={Auth}

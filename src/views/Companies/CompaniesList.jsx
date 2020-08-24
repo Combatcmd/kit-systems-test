@@ -24,6 +24,7 @@ const CompaniesList = () => {
      };
 
      const deleteCompany = companyId => {
+          setToast(true);
           dispatch(companiesService.deleteCompany(companyId));
      };
 

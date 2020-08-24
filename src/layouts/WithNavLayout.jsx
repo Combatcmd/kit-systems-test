@@ -149,7 +149,7 @@ const WithNavLayout = props => {
      };
 
      const handleLogout = () => {
-          authService.signout();
+          dispatch(authService.signout());
      };
 
      const fields = [
