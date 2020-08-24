@@ -39,8 +39,9 @@ const useStyles = makeStyles({
      },
      error: {
           color: 'red',
-          margin: 0,
+          margin: '-14px 0 14px',
           textAlign: 'center',
+          width: '100%',
      },
 });
 
